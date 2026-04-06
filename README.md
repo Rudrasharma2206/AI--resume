@@ -1,87 +1,58 @@
-# 📋 ResumeCheck AI
+# 📋 ResumeCheck AI — AI-Powered Resume Analyzer
 
-An AI-powered resume analyzer built with **Streamlit** and **Mistral AI**. Upload your resume as a PDF, select your target job role, and get instant structured feedback.
+An AI-powered web application that analyzes your resume and gives detailed, role-specific feedback using Mistral AI. Built with Python and Streamlit.
 
----
-
-## 🚀 Features
-
-- 📄 **PDF Resume Parsing** — Extracts text from uploaded PDF resumes
-- 🎯 **Role-Specific Analysis** — Tailored feedback based on your target job role
-- 📊 **Resume Score** — Get a score out of 100 with a status indicator
-- 💡 **Structured Feedback** — Organized into tabs: Strengths, Missing Skills, Experience, Projects, What to Fix, and Final Verdict
-- ⬇️ **Downloadable Report** — Save the full analysis as a `.txt` file
-- 🔌 **No SDK dependency** — Calls Mistral API directly via `requests`
+🔗 **Live Demo:** [https://ai--resume-sfyffo5d5ge98huunk9xxf.streamlit.app/]
 
 ---
 
 ## 📸 Screenshots
 
-### Home Screen
-![Home Screen](screenshots/home.png)
+### Input Form
+> Take a screenshot of the form and save as `screenshots/app-form.png`
 
-### Resume Analysis Result
-![Analysis Result](screenshots/result.png)
+![Input Form](screenshots/app-form.png)
 
-### Score & Tabs
-![Score Tabs](screenshots/tabs.png)
+### Analysis Result
+> Take a screenshot of the results with tabs and save as `screenshots/app-result.png`
+
+![Analysis Result](screenshots/app-result.png)
+
+---
+
+## 💡 Features
+
+- 📄 Upload resume as **PDF**
+- 🎯 Select from **10 target job roles**
+- 🤖 **Mistral AI** analyzes your resume instantly
+- 📊 Get a **score out of 100** with color-coded status
+- 🗂️ Results organized in **6 tabs** — easy to read
+- ⬇️ **Download** the full analysis as a `.txt` file
+
+---
+
+## 🗂️ Analysis Sections
+
+| Tab | What You Get |
+|-----|-------------|
+| 💪 Strengths | What's working well in your resume |
+| ⚠️ Missing Skills | Skills you need to add for the role |
+| 💼 Experience | Feedback on your experience section |
+| 🚀 Projects | Feedback on your projects section |
+| 🔧 What to Fix | 4–5 actionable improvement steps |
+| 📝 Verdict | Overall readiness summary |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool | Purpose |
-|------|---------|
+| Technology | Usage |
+|-----------|-------|
 | Python | Core language |
-| Streamlit | Web UI |
-| Mistral AI | LLM for resume analysis |
+| Streamlit | Web app framework |
+| Mistral AI | AI analysis (mistral-small-latest) |
 | pdfplumber | PDF text extraction |
-| requests | Direct API calls |
-| python-dotenv | Environment variable management |
-
----
-
-## 📦 Installation
-
-**1. Clone the repository**
-```bash
-git clone https://github.com/your-username/AI-resume.git
-cd AI-resume
-```
-
-**2. Create a virtual environment (recommended)**
-```bash
-python -m venv venv
-source venv/bin/activate        # Mac/Linux
-venv\Scripts\activate           # Windows
-```
-
-**3. Install dependencies**
-```bash
-pip install streamlit pdfplumber requests python-dotenv
-```
-
----
-
-## 🔑 Setup API Key
-
-Create a `.env` file in the project root:
-
-```
-MISTRAL_API_KEY=your_mistral_api_key_here
-```
-
-Get your free API key at → [https://console.mistral.ai](https://console.mistral.ai)
-
----
-
-## ▶️ Running the App
-
-```bash
-streamlit run app.py
-```
-
-Then open [http://localhost:8501](http://localhost:8501) in your browser.
+| python-dotenv | API key management |
 
 ---
 
@@ -89,39 +60,115 @@ Then open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ```
 AI-resume/
-├── app.py              # Main Streamlit application
-├── .env                # API key (do NOT commit this)
-├── .gitignore          # Should include .env
-├── README.md           # This file
-└── screenshots/        # Screenshots for README
-    ├── home.png
-    ├── result.png
-    └── tabs.png
+│
+├── app.py                 # Main Streamlit application
+├── requirements.txt       # Python dependencies
+├── .env                   # API key — never push this!
+├── .env.example           # Template for API key
+├── .gitignore             # Ignores .env and other files
+├── screenshots/           # App screenshots for README
+└── README.md
 ```
 
 ---
 
-## 🎯 Supported Job Roles
+## ⚙️ How to Run Locally
 
-- Machine Learning Engineer
-- Data Scientist
-- Data Analyst
-- Software Engineer (Backend / Frontend)
-- Full Stack Developer
-- DevOps / Cloud Engineer
-- AI / ML Research Intern
-- Python Developer
-- Business Analyst
+### 1. Clone the repository
+```bash
+git clone https://github.com/Rudrasharma2206/AI-resume.git
+cd AI-resume
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Get a free Mistral API key
+- Go to [console.mistral.ai](https://console.mistral.ai)
+- Sign up for a free account
+- Go to **API Keys** → **Create new key**
+- Copy the key
+
+### 4. Set up your API key
+Create a `.env` file in the project root:
+```
+MISTRAL_API_KEY=your_api_key_here
+```
+
+### 5. Run the app
+```bash
+streamlit run app.py
+```
+
+### 6. Open in browser
+```
+http://localhost:8501
+```
 
 ---
 
-## ⚠️ Notes
+## 📦 Requirements
 
-- Only **text-based PDFs** are supported. Scanned/image PDFs will not work.
-- Make sure your `.env` file is listed in `.gitignore` before pushing to GitHub.
+```
+streamlit
+mistralai
+pdfplumber
+python-dotenv
+```
+
+Install all at once:
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## 🙌 Credits
+## 🔒 Keep Your API Key Safe
 
-Built with ❤️ using [Streamlit](https://streamlit.io) and [Mistral AI](https://mistral.ai)
+- **Never push `.env` to GitHub**
+- The `.gitignore` already excludes it
+- Use `.env.example` to show others what keys are needed:
+
+```
+MISTRAL_API_KEY=your_api_key_here
+```
+
+---
+
+## 🚀 Deploy on Streamlit Cloud (Free)
+
+1. Push your code to GitHub (without `.env`)
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub repo
+4. Go to **Settings → Secrets** and add:
+```toml
+MISTRAL_API_KEY = "your_api_key_here"
+```
+5. Click **Deploy** — you get a free public URL ✅
+
+---
+
+## 🔮 Future Improvements
+
+- [ ] Support DOCX resume uploads
+- [ ] Add job description input for ATS scoring
+- [ ] Compare resume against a job description
+- [ ] Add LinkedIn profile URL analysis
+- [ ] Multi-language resume support
+
+---
+
+## 👤 Author
+
+**Rudra Sharma**
+- GitHub: [@Rudrasharma2206](https://github.com/Rudrasharma2206)
+- LinkedIn: [www.linkedin.com/in/rudra-sharma-336a07322
+]
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
