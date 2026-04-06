@@ -1,4 +1,5 @@
 streamlit
-google-generativeai
+mistralai
 pdfplumber
 python-dotenv
+ 
